@@ -16,29 +16,32 @@ ldconfig
 #下载后端
 cd 
 git clone https://github.com/ssrpanel/shadowsocksr.git
-cd /root/shadowsocksr
-sh setup_cymysql2.sh
+cd /root/shadowsocksrsh
+setup_cymysql2.sh
 
 #对接面板
-{
-	cd /root/shadowsocksr
-	echo '开始配置节点连接信息...'
-	stty erase '^H' && read -p "数据库服务器地址:" mysqlserver
-	stty erase '^H' && read -p "数据库服务器端口:" port
-	stty erase '^H' && read -p "数据库名称:" database
-	stty erase '^H' && read -p "数据库用户名:" username
-	stty erase '^H' && read -p "数据库密码:" pwd
-	stty erase '^H' && read -p "本节点ID:" nodeid
-	stty erase '^H' && read -p "本节点流量计算比例:" ratio
-	sed -i -e "s/server_host/$mysqlserver/g" usermysql.json
-	sed -i -e "s/server_port/$port/g" usermysql.json
-	sed -i -e "s/server_db/$database/g" usermysql.json
-	sed -i -e "s/server_user/$username/g" usermysql.json
-	sed -i -e "s/server_password/$pwd/g" usermysql.json
-	sed -i -e "s/nodeid/$nodeid/g" usermysql.json
-	sed -i -e "s/noderatio/$ratio/g" usermysql.json
-	echo -e "配置完成!\n如果无法连上数据库，请检查本机防火墙或者数据库防火墙!\n请自行编辑user-config.json，配置节点加密方式、混淆、协议等"
-}
+echo
+read -p "请输入 数据库服务器地址: " mysqlserver
+echo
+read -p "请输入 数据库服务器端口: " port
+echo
+read -p "请输入 数据库名称: " database
+echo
+read -p "请输入 数据库用户名: " username
+echo
+read -p "请输入 数据库密码: " pwd
+echo
+read -p "请输入 本节点ID: " nodeid
+echo
+read -p "请输入 本节点流量计算比例: " ratio
+
+sed -i "2s/server_host/$mysqlserver/g" usermysql.json
+sed -i "3s/server_port/$port/g" usermysql.json
+sed -i "4s/server_db/$database/g" usermysql.json
+sed -i "5s/server_user/$username/g" usermysql.json
+sed -i "6s/server_password/$pwd/g" usermysql.json
+sed -i "7s/nodeid/$nodeid/g" usermysql.json
+sed -i "8s/noderatio/$ratio/g" usermysql.json
 
 #配置supervisor
 apt-get install supervisor -y
@@ -78,7 +81,6 @@ cat > /root/shadowsocksr/user-config.json <<EOF
     "fast_open": true
 }
 EOF
-
 
 /etc/init.d/supervisor restart
 
