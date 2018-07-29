@@ -45,7 +45,7 @@ apt-get install supervisor -y
 cat > /etc/supervisor/conf.d/ssr.conf <<EOF
 [program:ssr]
 environment=LD_PRELOAD="/usr/lib/libtcmalloc.so"
-command=python /root/shadowsocks/server.py
+command=sh /root/shadowsocksr/logrun.sh
 autorestart=true
 autostart=true
 user=root
