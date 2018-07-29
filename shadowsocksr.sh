@@ -20,6 +20,7 @@ cd /root/shadowsocksrsh
 setup_cymysql2.sh
 
 #对接面板
+cd /root/
 echo
 read -p "请输入 数据库服务器地址: " mysqlserver
 echo
