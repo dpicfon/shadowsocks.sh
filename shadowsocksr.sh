@@ -25,21 +25,21 @@ read -p "请输入 数据库服务器地址: " mysqlserver
 echo
 read -p "请输入 数据库服务器端口: " port
 echo
-read -p "请输入 数据库名称: " database
-echo
 read -p "请输入 数据库用户名: " username
 echo
 read -p "请输入 数据库密码: " pwd
+echo
+read -p "请输入 数据库名称: " database
 echo
 read -p "请输入 本节点ID: " nodeid
 echo
 read -p "请输入 本节点流量计算比例: " ratio
 
-sed -i "2s/server_host/$mysqlserver/g" /root/shadowsocksr/usermysql.json
-sed -i "3s/server_port/$port/g" /root/shadowsocksr/usermysql.json
-sed -i "4s/server_db/$database/g" /root/shadowsocksr/usermysql.json
-sed -i "5s/server_user/$username/g" /root/shadowsocksr/usermysql.json
-sed -i "6s/server_password/$pwd/g" /root/shadowsocksr/usermysql.json
+sed -i "2s/127.0.0.1/$mysqlserver/g" /root/shadowsocksr/usermysql.json
+sed -i "3s/3306/$port/g" /root/shadowsocksr/usermysql.json
+sed -i "4s/ssrpanel/$username/g" /root/shadowsocksr/usermysql.json
+sed -i "5s/pass/$pwd/g" /root/shadowsocksr/usermysql.json
+sed -i "6s/ssrpanel/$database/g" /root/shadowsocksr/usermysql.json
 sed -i "7s/nodeid/$nodeid/g" /root/shadowsocksr/usermysql.json
 sed -i "8s/noderatio/$ratio/g" /root/shadowsocksr/usermysql.json
 
