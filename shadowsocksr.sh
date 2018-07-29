@@ -20,7 +20,6 @@ cd /root/shadowsocksr
 sh setup_cymysql2.sh
 
 #对接面板
-cd /root/
 echo
 read -p "请输入 数据库服务器地址: " mysqlserver
 echo
@@ -36,13 +35,13 @@ read -p "请输入 本节点ID: " nodeid
 echo
 read -p "请输入 本节点流量计算比例: " ratio
 
-sed -i "2s/server_host/$mysqlserver/g" usermysql.json
-sed -i "3s/server_port/$port/g" usermysql.json
-sed -i "4s/server_db/$database/g" usermysql.json
-sed -i "5s/server_user/$username/g" usermysql.json
-sed -i "6s/server_password/$pwd/g" usermysql.json
-sed -i "7s/nodeid/$nodeid/g" usermysql.json
-sed -i "8s/noderatio/$ratio/g" usermysql.json
+sed -i "2s/server_host/$mysqlserver/g" /root/shadowsocksr/usermysql.json
+sed -i "3s/server_port/$port/g" /root/shadowsocksr/usermysql.json
+sed -i "4s/server_db/$database/g" /root/shadowsocksr/usermysql.json
+sed -i "5s/server_user/$username/g" /root/shadowsocksr/usermysql.json
+sed -i "6s/server_password/$pwd/g" /root/shadowsocksr/usermysql.json
+sed -i "7s/nodeid/$nodeid/g" /root/shadowsocksr/usermysql.json
+sed -i "8s/noderatio/$ratio/g" /root/shadowsocksr/usermysql.json
 
 #配置supervisor
 apt-get install supervisor -y
