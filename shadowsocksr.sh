@@ -20,8 +20,7 @@ cd /root/shadowsocksr
 sh setup_cymysql2.sh
 
 #对接面板
-
-install_ssr(){
+{
 	cd /root/shadowsocksr
 	echo '开始配置节点连接信息...'
 	stty erase '^H' && read -p "数据库服务器地址:" mysqlserver
