@@ -38,7 +38,7 @@ read -p "请输入 本节点流量计算比例: " ratio
 sed -i "2s/127.0.0.1/$mysqlserver/g" /root/shadowsocksr/usermysql.json
 sed -i "3s/3306/$port/g" /root/shadowsocksr/usermysql.json
 sed -i "4s/ssrpanel/$username/g" /root/shadowsocksr/usermysql.json
-sed -i "5s/password/$pwd/g" /root/shadowsocksr/usermysql.json
+sed -i "5s/pass/$pwd/g" /root/shadowsocksr/usermysql.json
 sed -i "6s/ssrpanel/$database/g" /root/shadowsocksr/usermysql.json
 sed -i "7s/nodeid/$nodeid/g" /root/shadowsocksr/usermysql.json
 sed -i "8s/noderatio/$ratio/g" /root/shadowsocksr/usermysql.json
