@@ -40,8 +40,6 @@ install_ssr(){
 	sed -i -e "s/noderatio/$ratio/g" usermysql.json
 	echo -e "配置完成!\n如果无法连上数据库，请检查本机防火墙或者数据库防火墙!\n请自行编辑user-config.json，配置节点加密方式、混淆、协议等"
 }
-		;;
-esac
 
 #配置supervisor
 apt-get install supervisor -y
