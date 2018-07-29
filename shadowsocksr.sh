@@ -16,8 +16,8 @@ ldconfig
 #下载后端
 cd 
 git clone https://github.com/ssrpanel/shadowsocksr.git
-cd /root/shadowsocksrsh
-setup_cymysql2.sh
+cd /root/shadowsocksr
+sh setup_cymysql2.sh
 
 #对接面板
 cd /root/
